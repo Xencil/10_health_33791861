@@ -131,6 +131,7 @@ router.post('/endSession',redirectLogin,(req,res, next)=> {
     const dataBase = "UPDATE workout SET endTime = NOW() WHERE id = ? "
     db.query(dataBase,[sessionId], (err, result)=> {
         if(err) return next(err)
+        req.session.currentSessionId = null
         res.redirect("/usr/230/tracker/workoutResults/" + sessionId)
 
 
