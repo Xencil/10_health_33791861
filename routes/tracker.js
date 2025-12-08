@@ -132,7 +132,7 @@ router.post('/endSession',redirectLogin,(req,res, next)=> {
     db.query(dataBase,[sessionId], (err, result)=> {
         if(err) return next(err)
         req.session.currentSessionId = null
-        res.redirect("/tracker/workoutResults/" + sessionId)
+        res.redirect("./tracker/workoutResults/" + sessionId)
 
 
     });
