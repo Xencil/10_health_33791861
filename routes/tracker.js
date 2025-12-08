@@ -88,7 +88,7 @@ router.post('/startSession', redirectLogin, (req, res, next) => {
         if (err) return next(err)
         const sessionId = result.insertId
         req.session.currentSessionId = sessionId
-        res.redirect("../tracker/trackerLogger")
+        res.redirect("/usr/230/tracker/trackerLogger")
     });
 });
 
@@ -121,7 +121,7 @@ router.post('/addExercise',redirectLogin,[check("sessionId").isInt({min: 1}).wit
         
         db.query(InstertData,[sessionId,exerciseName, numWeight,numReps,isNewPR ?1 : 0],(err)=>{
             if (err) return next(err)
-            res.redirect("../tracker/trackerLogger")
+            res.redirect("/usr/230/tracker/trackerLogger")
         });
     });
 });
@@ -131,7 +131,8 @@ router.post('/endSession',redirectLogin,(req,res, next)=> {
     const dataBase = "UPDATE workout SET endTime = NOW() WHERE id = ? "
     db.query(dataBase,[sessionId], (err, result)=> {
         if(err) return next(err)
-        res.redirect("../tracker/workoutResults/" + sessionId)
+        res.redirect("/usr/230/tracker/workoutResults/" + sessionId)
+
 
     });
 });
