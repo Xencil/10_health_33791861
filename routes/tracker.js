@@ -88,7 +88,7 @@ router.post('/startSession', redirectLogin, (req, res, next) => {
         if (err) return next(err)
         const sessionId = result.insertId
         req.session.currentSessionId = sessionId
-        res.redirect("/usr/230/tracker/trackerLogger")
+        res.redirect("./trackerLogger")
     });
 });
 
@@ -121,7 +121,7 @@ router.post('/addExercise',redirectLogin,[check("sessionId").isInt({min: 1}).wit
         
         db.query(InstertData,[sessionId,exerciseName, numWeight,numReps,isNewPR ?1 : 0],(err)=>{
             if (err) return next(err)
-            res.redirect("/usr/230/tracker/trackerLogger")
+            res.redirect("./trackerLogger")
         });
     });
 });
