@@ -1,16 +1,57 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Welcome to <%=shopData.shopName%></title>
-    <link rel="stylesheet"  type="text/css" href="/main.css" />
-  </head>
-  <body>
-    <h1>Welcome to <%=shopData.shopName%></h1>
-    <p><a href="about">About <%=shopData.shopName%></a></p>
-    <p><a href="books/search">Search for books</a></p>
-    <p><a href="users/register">Register with us</a></p>
-    <p><a href="books/addbook">Add a new book</a></p>
-    <p><a href="books/list">List books</a></p>
-    <p><a href="users/logout">Logout</a></p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About <%= shopData.shopName %></title>
+  <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbarContainer">
+
+      <div class="navbarLeft">
+        <img src="/images/logo.webp" alt="GymTrack Logo" id="navbarLogo">
+        <p id="welcomeMsg"><%= shopData.shopName %></p>
+      </div>
+
+      <div class="navbarRight">
+        <ul class="navbarMenu">
+          <li class="navbarItem">
+            <a href="/users/login" class="navbarLinks">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="content">
+      <div class ="mainContent">
+        <h1>Come track your fitness today</h1>
+        <div class="contentButtons">
+          <a href="/users/login" class="btn">Login</a>
+          <a href="/users/register"  class="btn btn-secondary">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <h2 class="featuresTitle">What You Can Do</h2>
+
+  <div class="featuresGrid">
+    <div class="featureBox">
+      <h3>Tracking</h3>
+      <p>Record your workouts and follow your routine with ease.</p>
+    </div>
+
+    <div class="featureBox">
+      <h3>Progress Charts</h3>
+      <p>View your progress with clean and simple visuals.</p>
+    </div>
+
+    <div class="featureBox">
+      <h3>Pr Tracker</h3>
+      <p>Keep a log of what is your pr is for every exercise.</p>
+    </div>
+  </div>
+
+</body>
 </html>

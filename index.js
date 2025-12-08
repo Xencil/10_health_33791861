@@ -26,10 +26,10 @@ app.use(session({
 
 // Define the database connection pool
 const db = mysql.createPool({
-    host: process.env.BB_HOST,
-    user: process.env.BB_USER,
-    password: process.env.BB_PASSWORD,
-    database: process.env.BB_DATABASE,
+    host: process.env.HEALTH_HOST,
+    user: process.env.HEALTH_USER,
+    password: process.env.HEALTH_PASSWORD,
+    database: process.env.HEALTH_DATABASE,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
@@ -49,7 +49,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Define our application-specific data
-app.locals.shopData = {shopName: "Bertie's Books"}
+app.locals.shopData = {shopName: "Better Fitness"}
 
 // Load the route handlers
 const mainRoutes = require("./routes/main")
@@ -59,9 +59,9 @@ app.use('/', mainRoutes)
 const usersRoutes = require('./routes/users')
 app.use('/users', usersRoutes)
 
-// Load the route handlers for /books
-const booksRoutes = require('./routes/books')
-app.use('/books', booksRoutes)
+
+const trackerRoutes = require('./routes/tracker')
+app.use('/tracker', trackerRoutes)
 
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

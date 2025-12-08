@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbarContainer">
+
+            <div class="navbarLeft">
+                <img src="/images/logo.webp" alt="GymTrack Logo" id="navbarLogo">
+                <p id="welcomeMsg"><%=shopData.shopName%></p>
+            </div>
+            <div class="navbarRight">
+                <ul class="navbarMenu">
+                <li class="navbarItem">
+                    <a href="/" class="navbarLinks">Home</a>
+                    <a href="/tracker/trackerLogger?sessionId=<%= sessionId %>">Go back</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="prContainer">
+        <%prMess.forEach(msg => { %>
+            <div class="exerciseBox">
+                <p><%= msg %></p>
+            </div>
+        <%})%>
+    </div>
+
+    <div class="exerciseGrid">
+    <%exercises.forEach(ex=> { %>
+        <div class="exerciseBox">
+            <p class ="workoutTitle"><%=ex.exerciseName%></p>
+            <p>Weight: <%=ex.weight %> kg</p>
+            <p>Reps: <%= ex.reps%></p>
+            <% if(ex.isPR){ %>
+                <p class="prMessage">New Pr</p>
+            <%} %>
+        </div>
+    <% }) %>
+    </div>
+    <div class="visButtonCon">
+        <a href="/tracker/charts" class="visButton">View Progress</a>
+    </div>
+
+</body>
+</html>

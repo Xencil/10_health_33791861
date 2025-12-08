@@ -5,11 +5,29 @@
     <link rel="stylesheet"  type="text/css" href="/main.css" />
   </head>
   <body>
+    <nav class="navbar">
+    <div class="navbarContainer">
+
+      <div class="navbarLeft">
+        <img src="/images/logo.webp" alt="GymTrack Logo" id="navbarLogo">
+        <p id="welcomeMsg"><%= shopData.shopName %></p>
+      </div>
+      <div class="navbarRight">
+        <ul class="navbarMenu">
+          <li class="navbarItem">
+            <a href="/" class="navbarLinks">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class = "forumSection">
     <h1>Register for <%=shopData.shopName%></h1>
-    <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+    <%if(typeof errors !== 'undefined' && errors.length > 0){%>
       <div class="errors">
         <ul>
-          <% errors.forEach(function(error) { %>
+          <%errors.forEach(function(error) { %>
             <li><%= error.msg %></li>
           <% }) %>
         </ul>
@@ -20,8 +38,11 @@
         <p>First name: <input id="first" type="text" name="first" /></p>
         <p>Last name: <input id="last" type="text" name="last" /></p>
         <p>Email: <input id="email" type="email" name="email" /></p>
-        <p>Password: <input id="password" type="text" name="password" /></p>
+        <p>Password: <input id="password" type="password" name="password" /></p>
         <input type="submit" value="Register" />
+        <a href="/users/login" class="loginLink">Already have an account? Login here</a>
       </form>
+  </div>
   </body>
+
 </html>

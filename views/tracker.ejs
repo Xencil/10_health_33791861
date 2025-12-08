@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <title><%=shopData.shopName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+    <nav class="navbar">
+    <div class="navbarContainer">
+
+        <div class="navbarLeft">
+        <img src="/images/logo.webp" alt="GymTrack Logo" id="navbarLogo">
+        <p id="welcomeMsg"><%=shopData.shopName%></p>
+        </div>
+
+        <div class="navbarRight">
+        <ul class="navbarMenu">
+            <li class="navbarItem">
+            <a href="/users/logout" class="navbarLinks">Log out</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <div class="forumSection">
+        <%if(sessionId){%>
+            <% if(typeof errors !== 'undefined' && errors.length > 0){ %>
+                <div class="errors">
+                    <ul>
+                        <% errors.forEach(function(error) { %>
+                            <li><%= error.msg %></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            <%} %>
+        <form method="POST" action="/tracker/addExercise">
+            <input type="hidden" name="sessionId" value="<%= sessionId %>">
+            Exercise: <input type="text" name="exercise" required><br><br>
+            Weight (kg): <input type="number" name="weight" required><br><br>
+            Reps: <input type="number" name="reps" required><br><br>
+            <input type="submit" value="Add Exercise">
+        </form>
+        <form method="POST" action="/tracker/endSession">
+            <input type="hidden" name="sessionId" value="<%= sessionId %>">
+            <input type="submit" value="End Workout">
+        </form>
+        <div class="exerciseGrid">
+            <%exercises.forEach(ex=>{ %>
+                <div class="exerciseBox">
+                    <p><strong><%=ex.exerciseName %></strong></p>
+                    <p>Weight: <%=ex.weight %> kg</p>
+                    <p>Reps: <%= ex.reps%></p>
+                </div>
+            <%})%>
+        </div>
+    <% }else{ %>
+        <form method="POST" action="/tracker/startSession">
+            <input type="submit" value="Start Workout">
+        </form>
+    <% } %>
+
+    </div>
+
+</body>
+</html>
