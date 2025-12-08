@@ -90,7 +90,7 @@ router.get('/logout', redirectLogin, (req,res) => {
         if (err) {
             return res.redirect('./')
         }
-        res.render("about.ejs");
+        res.render("index.ejs");
         })
     })
 
