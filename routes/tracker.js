@@ -75,7 +75,7 @@ router.get('/charts', redirectLogin, (req, res, next)=> {
         const sets =chartResults.map(r=>r.timesDone)
         db.query(sqlPR, [userId],(err, prResults)=> {
             if(err) return next(err)
-            res.render("charts", {labels,sets,prList: prResults,sessionId:req.query.sessionId})
+            res.render("charts", {labels,sets,prList: prResults,sessionId:null})
         })
     })
 })
