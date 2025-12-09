@@ -59,14 +59,12 @@ app.use('/', mainRoutes)
 const usersRoutes = require('./routes/users')
 app.use('/users', usersRoutes)
 
-const exerciseChart = require('./routes/exerciseChart.js')
+const exerciseChart = require('./public/exerciseChart.js')
 app.use('/', exerciseChart)
 
 const ImageFolder = require('./images')
 app.use('/', ImageFolder)
 
-const trackerRoutes = require('./routes/tracker')
-app.use('/tracker', trackerRoutes)
 
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
