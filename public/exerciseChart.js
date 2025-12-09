@@ -1,11 +1,6 @@
 async function createChart(){
     try{
         const response = await fetch('chartData')
-        const contentType =response.headers.get('content-type')
-        if(!contentType ||!contentType.includes('application/json')){
-        console.error(await response.text());
-        return;
-        }
         const data = await response.json();
         const ctx =document.getElementById('exerciseChart').getContext('2d')
         new Chart(ctx,{
