@@ -7,9 +7,9 @@ router.get('/',function(req, res, next){
     res.render('index.ejs')
 });
 
-// router.get('/about',function(req, res, next){
-//     res.render('about.ejs')
-// });
+router.get('/about',function(req, res, next){
+    res.render('about.ejs')
+});
 
 
 // Export the router object so index.js can access it
