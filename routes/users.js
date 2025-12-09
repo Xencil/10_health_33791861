@@ -75,8 +75,8 @@ router.post('/loggedin', (req, res, next) => {
                 req.session.userId = user.id;
                 req.session.username = user.username;
                 
-                res.redirect("/tracker/trackerLogger");
-                // res.redirect("/usr/230/tracker/trackerLogger");
+                // res.redirect("/tracker/trackerLogger"); //for local device testing
+                res.redirect("/usr/230/tracker/trackerLogger");
             } else {
 
                 return res.render("login", { 
