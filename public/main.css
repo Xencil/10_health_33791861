@@ -217,6 +217,11 @@ body{
   color: white;
 }
 
+.forumSection p {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 4px;    
+}
 
 .loginLink {
   display: block;
