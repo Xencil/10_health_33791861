@@ -1,7 +1,11 @@
 async function createChart(){
     try{
         const response =await fetch('/tracker/chartData')
-        const data =await response.json()
+        if(!contentType ||!contentType.includes('application/json')){
+        console.error(await response.text());
+        return;
+        }
+        const data = await response.json();
         const ctx =document.getElementById('exerciseChart').getContext('2d')
         new Chart(ctx,{
             type: "bar",
