@@ -59,7 +59,7 @@ app.use('/', mainRoutes)
 const usersRoutes = require('./routes/users')
 app.use('/users', usersRoutes)
 
-const exerciseChart = require('./exerciseChart.js')
+const exerciseChart = require('/exerciseChart.js')
 app.use('/', exerciseChart)
 
 const ImageFolder = require('./images')
