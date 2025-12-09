@@ -1,1 +1,7 @@
 home=http://www.doc.gold.ac.uk/usr/230/
+login=http://doc.gold.ac.uk/usr/230/users/login
+register=http://doc.gold.ac.uk/usr/230/users/register
+trackworkoutpage=http://doc.gold.ac.uk/usr/230/tracker/trackerLogger
+workoutResults=http://doc.gold.ac.uk/usr/230/tracker/workoutResults/
+chart=http://doc.gold.ac.uk/usr/230/tracker/charts
+about=http://doc.gold.ac.uk/usr/230/about
