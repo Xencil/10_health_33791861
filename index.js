@@ -59,5 +59,8 @@ app.use('/', mainRoutes)
 const usersRoutes = require('./routes/users')
 app.use('/users', usersRoutes)
 
+const trackerRoutes = require('./routes/tracker')
+app.use('/tracker', trackerRoutes)
+
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
