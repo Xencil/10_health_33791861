@@ -1,6 +1,7 @@
 async function createChart(){
     try{
         const response =await fetch('/tracker/chartData')
+        const contentType =response.headers.get('content-type');
         if(!contentType ||!contentType.includes('application/json')){
         console.error(await response.text());
         return;
