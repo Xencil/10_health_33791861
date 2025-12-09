@@ -116,7 +116,7 @@ body{
 }
 
 .content {
-  background-image: url('./images/gym-tracking-app-background.png');
+  background-image: url('/images/gym-tracking-app-background.png');
   background-size: cover;
   background-position: center;
   height: 100vh;
