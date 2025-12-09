@@ -42,7 +42,8 @@ router.post('/registered',  [check('email').isEmail().withMessage("email not val
                     next(err)
                 }
                 else
-                    res.render("./tracker", { username: req.session.username, sessionId: null })
+                    res.render("tracker.ejs", { username: req.session.username, sessionId: null })
+                    // res.render("./tracker", { username: req.session.username, sessionId: null })
                     // result = 'Hello '+ req.body.first + ' '+ req.body.last +' you are now registered!  We will send an email to you at ' + req.body.email
                     // result += 'Your password is: '+ req.body.password +' and your hashed password is: '+ hashedPassword
                     // res.send(result)
@@ -73,8 +74,9 @@ router.post('/loggedin', (req, res, next) => {
             if (result === true) {
                 req.session.userId = user.id;
                 req.session.username = user.username;
-
-                res.redirect("/usr/230/tracker/trackerLogger");
+                
+                res.redirect("/tracker/trackerLogger");
+                // res.redirect("/usr/230/tracker/trackerLogger");
             } else {
 
                 return res.render("login", { 
