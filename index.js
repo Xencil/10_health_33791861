@@ -59,6 +59,11 @@ app.use('/', mainRoutes)
 const usersRoutes = require('./routes/users')
 app.use('/users', usersRoutes)
 
+const exerciseChart = require('./exerciseChart')
+app.use('/exerciseChart', exerciseChart)
+
+const ImageFolder = require('./images')
+app.use('/images', ImageFolder)
 
 const trackerRoutes = require('./routes/tracker')
 app.use('/tracker', trackerRoutes)
