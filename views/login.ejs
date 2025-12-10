@@ -22,6 +22,7 @@
         </div>
     </nav>
     <div class = "forumSection">
+        <h1>Login</h1>
         <% if(typeof errors !== 'undefined' && errors.length > 0){ %>
         <div class="errors">
             <ul>
@@ -31,7 +32,6 @@
             </ul>
         </div>
             <%}%>  
-            <h1>Login</h1>
             <form action="loggedin" method="POST">
                 <p>Username: <input id="username"  type="text" name="username"/></p>
                 <p>Password: <input id="password"  type="password" name="password" /></p>
